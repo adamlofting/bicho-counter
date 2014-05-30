@@ -20,11 +20,11 @@ app.use(app.router);
 
 // Routes
 app.get('/', function (req, res) {
-  var team = req.query.team;
-  if (!team) {
-    res.end('Missing parameter: "team". E.g. mofo-webmaker, moco-engagement');
-    return;
-  }
+  // var team = req.query.team;
+  // if (!team) {
+  //   res.end('Missing parameter: "team". E.g. mofo-webmaker, moco-engagement');
+  //   return;
+  // }
 
   var date = util.parseAndCheckDate(req.query.date);
   if (!date) {
@@ -32,7 +32,7 @@ app.get('/', function (req, res) {
     return;
   }
 
-  data.getContributorCounts(date, team, function gotCounts(err, result) {
+  data.getContributorCounts(date, function gotCounts(err, result) {
     if (err) {
       console.log(err);
     }
